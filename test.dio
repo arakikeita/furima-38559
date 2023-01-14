@@ -25,7 +25,7 @@
                 <mxCell id="8" value="address(配送先情報)" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
                     <mxGeometry x="560" y="560" width="160" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="post 郵便番号&#10;prefectures 都道府県&#10;city 市町村&#10;num 　番地&#10;building 建物&#10;telephone 電話番号&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="8" vertex="1">
+                <mxCell id="9" value="post 郵便番号&#10;area 都道府県&#10;city 市町村&#10;num 　番地&#10;building 建物&#10;telephone 電話番号&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="8" vertex="1">
                     <mxGeometry y="30" width="160" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="" style="endArrow=ERone;startArrow=ERmany;html=1;entryX=0;entryY=0.2;entryDx=0;entryDy=0;endFill=0;startFill=0;endSize=20;startSize=20;entryPerimeter=0;" parent="1" target="3" edge="1">
