@@ -27,18 +27,67 @@ Things you may want to cover:
 
 #テーブル設計
 
-##usersテーブル
+## usersテーブル
 
-| Column     | Type      | Option         |
-| ---------- | --------- | -------------- |
-| email      | string    | null: false, unique:true | ユニーク制約
+| Column     | Type        | Option         |
+| ---------- | ---------   | -------------- |
+| nickname   | string      | null: false    |
+| email      | string      | null: false, unique:true | ユニーク制約
 | encrypted_password  | string    | null: false    | 
-| name       | string    | null: false    |
-| profile    | text      | null: false    |
-| occupation | text      | null: false    |
-| position   | text      | null: false    |
+| surname    | string      | null: false    |
+| name       | string      | null: false    |
+| surnamek   | string      | null: false    |
+| namek      | string      | null: false    |
 
 ### Association
 
--has_many :prototypes
--has_many :comments
+-has_many :items
+-has_many :buys
+
+
+## itemsテーブル
+
+| Column     | Type        | Option         |
+| ---------- | ---------   | -------------- |
+| name       | string      | null: false    |
+| content    | string      | null: false    | 
+| price      | integer     | null: false    | 
+| user_id    | string      | null: false,foreign_key: true    |
+
+
+### Association
+
+-belongs_to :user
+-has_one :buy
+
+
+## buysテーブル
+
+| Column     | Type         | Option         |
+| ---------- | ---------    | -------------- |
+| card       | integer      | null: false    |
+| month      | integer      | null: false    |
+| year       | integer      | null: false    | 
+| security   | integer      | null: false    |
+| user_id    | references   | null: false, foreign_key: true  |
+
+### Association
+
+-belongs_to :user
+-belongs_to :buy
+-has_one :address
+
+# addressテーブル
+
+| Column     | Type         | Option         |
+| ---------- | ---------    | -------------- |
+| post       | integer      | null: false    |
+| city       | string       | null: false    |
+| num        | integer      | null: false    | 
+| building   | string       |                |
+| telephone  | string       | null: false    |
+
+### Association
+
+-belongs_to :buy
+  
