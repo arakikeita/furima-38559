@@ -38,7 +38,7 @@ Things you may want to cover:
 | name       | string      | null: false    |
 | surnamek   | string      | null: false    |
 | namek      | string      | null: false    |
-| birthday   | string      | null: false    |
+| birthday   | date        | null: false    |
 
 ### Association
 
@@ -51,47 +51,48 @@ Things you may want to cover:
 | Column     | Type        | Option         |
 | ---------- | ---------   | -------------- |
 | name       | string      | null: false    |
-| content    | string      | null: false    |
+| content    | text        | null: false    |
 
-| category   | string      | null: false    |
-| state      | string      | null: false    |
-| load       | string      | null: false    |
-| area       | string      | null: false    |
-| days       | string      | null: false    |
+| category_id   | string      | null: false    |
+| state_id      | string      | null: false    |
+| load_id       | string      | null: false    |
+| area_id       | string      | null: false    |
+| days_id       | string      | null: false    |
 
 | price      | integer     | null: false    | 
-| user_id    | references  | null: false,foreign_key: true    |
+| user    | references  | null: false,foreign_key: true    |
 
 
 ### Association
 
 -belongs_to :user
--has_one :item
+-has_one :buy
 
 
 ## buysテーブル
 
 | Column     | Type         | Option         |
 | ---------- | ---------    | -------------- |
-| user_id    | references   | null: false, foreign_key: true  |
-| item_id    | references   | null: false, foreign_key: true  |
+| user    | references   | null: false, foreign_key: true  |
+| item    | references   | null: false, foreign_key: true  |
 
 ### Association
 
 -belongs_to :user
--belongs_to :buy
+-belongs_to :item
 -has_one :address
 
-# addressテーブル
+# addressesテーブル
 
 | Column      | Type         | Option         |
 | ----------  | ---------    | -------------- |
-| post        | integer      | null: false    |
-| prefectures | string       | null: false    |
+| post        | string       | null: false    |
+| area_id     | string       | null: false    |
 | city        | string       | null: false    |
-| num         | integer      | null: false    | 
+| num         | string       | null: false    | 
 | building    | string       |                |
 | telephone   | string       | null: false    |
+| buy         | references   | null: false, foreign_key: true  |
 
 ### Association
 
