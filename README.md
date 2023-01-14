@@ -22,3 +22,23 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+
+#テーブル設計
+
+##usersテーブル
+
+| Column     | Type      | Option         |
+| ---------- | --------- | -------------- |
+| email      | string    | null: false, unique:true | ユニーク制約
+| encrypted_password  | string    | null: false    | 
+| name       | string    | null: false    |
+| profile    | text      | null: false    |
+| occupation | text      | null: false    |
+| position   | text      | null: false    |
+
+### Association
+
+-has_many :prototypes
+-has_many :comments
