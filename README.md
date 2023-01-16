@@ -22,3 +22,79 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+
+#テーブル設計
+
+## usersテーブル
+
+| Column     | Type        | Option         |
+| ---------- | ---------   | -------------- |
+| nickname   | string      | null: false    |
+| email      | string      | null: false, unique:true | ユニーク制約
+| encrypted_password  | string    | null: false    | 
+| surname    | string      | null: false    |
+| name       | string      | null: false    |
+| surnamek   | string      | null: false    |
+| namek      | string      | null: false    |
+| birthday   | date        | null: false    |
+
+### Association
+
+-has_many :items
+-has_many :buys
+
+
+## itemsテーブル
+
+| Column     | Type        | Option         |
+| ---------- | ---------   | -------------- |
+| name       | string      | null: false    |
+| content    | text        | null: false    |
+
+| category_id   | integer      | null: false    |
+| state_id      | integer      | null: false    |
+| load_id       | integer      | null: false    |
+| area_id       | integer      | null: false    |
+| scheduled_day_id       | string      | null: false    |
+
+| price      | integer     | null: false    | 
+| user    | references  | null: false,foreign_key: true    |
+
+
+### Association
+
+-belongs_to :user
+-has_one :buy
+
+
+## buysテーブル
+
+| Column     | Type         | Option         |
+| ---------- | ---------    | -------------- |
+| user    | references   | null: false, foreign_key: true  |
+| item    | references   | null: false, foreign_key: true  |
+
+### Association
+
+-belongs_to :user
+-belongs_to :item
+-has_one :address
+
+# addressesテーブル
+
+| Column      | Type         | Option         |
+| ----------  | ---------    | -------------- |
+| post        | string       | null: false    |
+| area_id     | integer       | null: false    |
+| city        | string       | null: false    |
+| num         | string       | null: false    | 
+| building    | string       |                |
+| telephone   | string       | null: false    |
+| buy         | references   | null: false, foreign_key: true  |
+
+### Association
+
+-belongs_to :buy
+  
