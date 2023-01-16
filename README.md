@@ -55,9 +55,9 @@ Things you may want to cover:
 
 | category_id   | integer      | null: false    |
 | state_id      | integer      | null: false    |
-| load_id       | integer      | null: false    |
+| shipping_id       | integer      | null: false    |
 | area_id       | integer      | null: false    |
-| scheduled_day_id       | string      | null: false    |
+| scheduled_day_id       | integer     | null: false    |
 
 | price      | integer     | null: false    | 
 | user    | references  | null: false,foreign_key: true    |
