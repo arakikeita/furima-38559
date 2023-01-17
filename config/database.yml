@@ -15,13 +15,13 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 
-  development:
-    <<: *default
-    adapter: mysql2
-    username: root
-    password:
-    host: localhost
-    database: furima_38559_development
+development:
+  <<: *default
+  adapter: mysql2
+  username: root
+  password:
+  host: localhost
+  database: furima_38559_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
