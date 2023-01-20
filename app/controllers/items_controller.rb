@@ -1,4 +1,8 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, only: [:new]
+
+
+
 
   def index
   end
@@ -9,11 +13,10 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(prototype_params)
+    @item = Item.new(item_params)
     if @item.save
-      redirect_to action :index
+      redirect_to action: :index
     else
-      @item = Item.new(prototype_params)
       render :new
     end       
   end
@@ -23,7 +26,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name,:content,:category_id,:state_id,:shipping_id, :area_id,:scheduled_day_id,:price, :image).merge(user_id: current_id)
+    params.require(:item).permit(:name,:content,:category_id,:state_id,:shipping_id,:area_id,:scheduled_day_id,:price,:image).merge(user_id: current_user.id)
   end
 
 
