@@ -10,6 +10,8 @@ class Item < ApplicationRecord
   belongs_to :scheduled_day
 
 
+  validates :image, presence: true
+
   validates :name, presence: true
 
   validates :content, presence: true
