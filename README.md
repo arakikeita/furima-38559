@@ -53,11 +53,11 @@ Things you may want to cover:
 | name       | string      | null: false    |
 | content    | text        | null: false    |
 
-| category_id   | integer      | null: false    |
-| state_id      | integer      | null: false    |
-| shipping_id       | integer      | null: false    |
-| area_id       | integer      | null: false    |
-| scheduled_day_id       | integer     | null: false    |
+| category_id        | integer      | null: false    |
+| state_id           | integer      | null: false    |
+| shipping_id        | integer      | null: false    |
+| area_id            | integer      | null: false    |
+| scheduled_day_id   | integer     | null: false    |
 
 | price      | integer     | null: false    | 
 | user    | references  | null: false,foreign_key: true    |
