@@ -1,7 +1,7 @@
 class BuyAddress
   
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :post, :area_id, :city, :num, :building, :telephone
+  attr_accessor :user_id, :item_id, :post, :area_id, :city, :num, :building, :telephone, :token
 
 
   with_options presence: true do 
@@ -12,6 +12,8 @@ class BuyAddress
     validates :telephone,format:{ with: /\A\d{10,11}\z/ }
     validates :user_id
     validates :item_id
+    validates :token
+
   end
 
   def save
