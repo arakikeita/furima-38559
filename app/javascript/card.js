@@ -21,7 +21,6 @@ const pay = () => {
        }
        else{
         const token = response.id;
-        console.log(token);
         const renderDom = document.getElementById("charge-form"); //form_withのid取得
         const tokenObj = `<input value=${token} name='token' type="hidden">` //input内に代入するために変数定義？
         renderDom.insertAdjacentHTML("beforeend", tokenObj); ///上記で取得した要素renderDomをinsertAdjacentHTMLメソッドでHTMLを挿入
