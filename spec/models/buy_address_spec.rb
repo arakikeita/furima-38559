@@ -1,14 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe BuyAddress, type: :model do
-  before do
-    user = FactoryBot.create(:user)
-    @buy_address = FactoryBot.build(:buy_address)
-  end
+ 
 
   describe '商品購入機能' do
+    before do
+      item = FactoryBot.create(:item)
+      user = FactoryBot.create(:user)
+      @buy_address = FactoryBot.build(:buy_address,  item_id: item.id, user_id: user.id)
+    end
+
     context '購入できる時' do
       it '全て入力されていると登録ができる' do
+        expect(@buy_address).to be_valid
+      end
+      it '建物名がなくても登録できること' do
+        @buy_address.building = ''
         expect(@buy_address).to be_valid
       end
     end
@@ -52,6 +59,11 @@ RSpec.describe BuyAddress, type: :model do
       end
       it '電話番号が12桁以上だと購入できない' do 
         @buy_address.telephone = 999999999999
+        @buy_address.valid?
+        expect(@buy_address.errors.full_messages).to include("Telephone is invalid")
+      end
+      it '電話番号に半角数字以外が含まれている場合は購入できない' do
+        @buy_address.telephone = "7777777777７"
         @buy_address.valid?
         expect(@buy_address.errors.full_messages).to include("Telephone is invalid")
       end
