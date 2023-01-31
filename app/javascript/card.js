@@ -1,5 +1,6 @@
 const pay = () => {
   const payjp = Payjp(process.env.PAYJP_PUBLIC_KEY)//PAY.JPテスト公開鍵
+  console.log(payjp)
   const elements = payjp.elements();//elementsインスタンスを作成
   const numberElement = elements.create('cardNumber');//入力フォーム作成(カード番号入力欄)
   const expiryElement = elements.create('cardExpiry');///有効期限
